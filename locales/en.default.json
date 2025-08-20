@@ -287,6 +287,8 @@
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
+      "account": "My Account",
+      "sign": "Sign in or Sign up",
       "cart_count": {
         "one": "{{ count }} item",
         "other": "{{ count }} items"
