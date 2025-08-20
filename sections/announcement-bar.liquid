@@ -1,0 +1,33 @@
+<div class="announcement-bar color-{{ section.settings.color_scheme }}">
+  {% if section.settings.richtext != blank %}
+    {{ section.settings.richtext }}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },  
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-4"
+    },
+    {
+      "type": "richtext",
+      "id": "richtext",
+      "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.presets.name"
+    }
+  ]
+}
+{% endschema %}

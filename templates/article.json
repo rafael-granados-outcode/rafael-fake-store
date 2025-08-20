@@ -9,7 +9,11 @@
  */
  {
   "sections": {
+    "main": {
+      "type": "main-article"
+    }
   },
   "order": [
+    "main"
   ]
 }
