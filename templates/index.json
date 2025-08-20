@@ -7,15 +7,39 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "image_banner": {
       "type": "image-banner",
-      "blocks": {       
+      "blocks": {
+        "heading_9y7ban": {
+          "type": "heading",
+          "settings": {
+            "heading": "50% OFF EVERYTHING"
+          }
+        },
+        "text_n74Hcf": {
+          "type": "text",
+          "settings": {
+            "text": "IN STORES & ONLINE"
+          }
+        },
+        "buttons_bm3m8w": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": ""
+          }
+        }
       },
       "block_order": [
+        "heading_9y7ban",
+        "text_n74Hcf",
+        "buttons_bm3m8w"
       ],
       "settings": {
+        "image": "shopify://shop_images/hero-image.png",
+        "color_scheme": ""
       }
     }
   },
