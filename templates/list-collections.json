@@ -7,10 +7,11 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
-      "type": "main-list-collections"
+      "type": "main-list-collections",
+      "settings": {}
     }
   },
   "order": [

@@ -7,17 +7,25 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
+    "announcement_bar_gCXCFN": {
+      "type": "announcement-bar",
+      "name": "t:sections.announcement-bar.presets.name",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "richtext": "<p>FREE SHIPPING & RETURNS ON EVERY ORDER!</p>"
+      }
+    },
     "header": {
       "type": "header",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
+    "announcement_bar_gCXCFN",
     "header"
   ]
 }
