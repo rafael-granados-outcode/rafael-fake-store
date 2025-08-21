@@ -505,38 +505,14 @@ details > * {
   isolation: isolate;
 }
 
-.banner__box {
-  text-align: center;
-}
-
-.banner__media {
-  height: 30rem;
-}
-
 .banner__content {
+  min-height: 48rem;
   align-items: flex-end;
   justify-content: center;
 }
 
-@media screen and (min-width: 750px) {
-  .banner__media {
-    min-height: 40rem;
-    height: 100%;
-  }
-
-  .banner {
-    flex-direction: row;
-  }
-
-  .banner__content {
-    align-items: center;
-    justify-content: flex-start;
-    padding: 5rem;
-  }
-}
-
-.banner__media {
-  height: 100%;
+.banner__media.media {
+  height: 48rem;
   position: absolute;
   left: 0;
   top: 0;
@@ -545,6 +521,7 @@ details > * {
 
 .banner__media--img {
   width: 100%;
+  height: 100%;
 }
 
 .banner__content {
@@ -566,6 +543,42 @@ details > * {
   width: 100%;
   word-wrap: break-word;
   z-index: 1;
+  align-self: flex-end;
+}
+
+@media screen and (min-width: 750px) {
+  .banner .banner__media {
+    min-height: 60rem;
+    height: 100%;
+  }
+
+  .banner {
+    flex-direction: row;
+  }
+  
+  .banner .banner__content {
+    min-height: 60rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5rem;
+    background: transparent;
+  }
+
+  .banner__box {
+    background: transparent;
+    max-width: 60rem;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .banner__content {
+    padding: 0 10px;
+  }
+
+  .banner__box {
+    border: 1px solid #D8D8D8;
+  }
 }
 
 .banner::after,
@@ -578,4 +591,37 @@ details > * {
   z-index: 1;
   width: 100%;
   height: 100%;
+}
+
+.media {
+  display: block;
+  background-color: rgba(var(--color-foreground), 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.media--transparent {
+  background-color: transparent;
+}
+
+.media > img {
+  object-fit: cover;
+  object-position: center center;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+h2.banner__heading {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.714px;
+  margin: 0;
+}
+
+@media screen and (min-width: 750px) {
+  h2.banner__heading {
+    font-size: 80px;
+    letter-spacing: 5px;
+  }
 }
