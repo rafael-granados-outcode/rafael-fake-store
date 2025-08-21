@@ -625,9 +625,30 @@ h2.banner__heading {
   margin-bottom: 20px;
 }
 
+.banner__buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  justify-items: center;
+}
+
+.banner__buttons > .button {
+  min-width: 125px;
+  width: 100%;
+  text-transform: uppercase;
+}
+
 @media screen and (min-width: 750px) {
   h2.banner__heading {
     font-size: 80px;
     letter-spacing: 5px;
+  }
+
+  .banner__buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .banner__buttons > .button {
+    max-width: 150px;
   }
 }
