@@ -52,20 +52,20 @@
         "heading_Rh4gWd": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text"
+            "heading": "Vacay This Way"
           }
         },
         "text_QLGw8J": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+            "text": "<p>Everything you need for your summer get away!</p>"
           }
         },
         "button_YWmQW8": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": ""
+            "button_label": "SHOP SUMMER ESSENTIALS",
+            "button_link": "shopify://collections/women"
           }
         }
       },
