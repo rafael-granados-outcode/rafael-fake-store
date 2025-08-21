@@ -23,7 +23,7 @@
   <div class="page-width">
     <div class="dual-banner grid grid--1-col grid--2-col-tablet">
       {% for block in section.blocks %}
-        <div class="dual-banner__item grid__item relative">
+        <div class="dual-banner__item flex flex-col items-center lg-justify-end grid__item relative">
           {% if block.settings.image != blank %}
             {%- assign widths = '165, 360, 535, 750, 1070' -%}
             {%- capture sizes -%}
@@ -33,11 +33,11 @@
             {{
               block.settings.image
               | image_url: width: 1070
-              | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority, class: 'dual-banner__item--img absolute inset-0 object-cover'
+              | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority, class: 'dual-banner__item--img lg-absolute inset-0 object-cover'
             }}
           {% endif %}
 
-          <div class="dual-banner__item--content flex flex-col justify-center items-center">
+          <div class="dual-banner__item--content z-20 relative flex flex-col justify-center text-center items-center">
             {% if block.settings.heading != blank %}
               <h3
                 class="dual-banner__heading inline-richtext"
@@ -48,23 +48,25 @@
             {% endif %}
 
             {% if block.settings.text != blank %}
-              <h3
+              <div
                 class="dual-banner__text rte"
                 {{ block.shopify_attributes }}
               >
                 {{ block.settings.text }}
-              </h3>
+              </div>
             {% endif %}
 
             {% if block.settings.collections != blank %}
-              <div class="flex items-center justify-between">
-                {% for collection in block.settings.buttons %}                  
-                  <a
-                    href="{{ collection.url }}"
-                    class="link"
-                  >
-                    {{- collection.title | escape -}}
-                  </a>
+              <div class="dual-banner__links flex items-center justify-between">
+                {% for collection in block.settings.collections %}
+                  <div>
+                    <a
+                      href="{{ collection.url }}"
+                      class="link"
+                    >
+                      {{- collection.title | escape -}}
+                    </a>
+                  </div>                  
                 {% endfor %}
               </div>
             {% endif %}
