@@ -1,0 +1,159 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div class="section-{{ section.id }}-padding color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="dual-banner grid grid--1-col grid--2-col-tablet">
+      {% for block in section.blocks %}
+        <div class="dual-banner__item grid__item relative">
+          {% if block.settings.image != blank %}
+            {%- assign widths = '165, 360, 535, 750, 1070' -%}
+            {%- capture sizes -%}
+              (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+              (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+            {%- endcapture -%}
+            {{
+              section.settings.image
+              | image_url: width: 1070
+              | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority, class: 'dual-banner__item--img absolute inset-0 object-cover'
+            }}
+          {% endif %}
+
+          <div class="dual-banner__item--content flex flex-col justify-center items-center">
+            {% if block.settings.heading != blank %}
+              <h3
+                class="dual-banner__heading inline-richtext"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.heading }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <h3
+                class="dual-banner__text rte"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.text }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.collections != blank %}
+              <div class="flex items-center justify-between">
+                {% for collection in block.settings.buttons %}                  
+                  <a
+                    href="{{ collection.url }}"
+                    class="link"
+                  >
+                    {{- collection.title | escape -}}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Dual Banner",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Card Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Card Content",
+          "default": "<p>Lorem ipsum</p>"
+        },
+        {
+          "type": "collection_list",
+          "id": "collections",
+          "label": "Link Collections"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Banner",
+      "blocks": [
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
