@@ -773,9 +773,23 @@ h2.banner__heading {
   height: 28rem;
 }
 
+.image-with-text__media > img {
+  width: 100%;
+  width: -webkit-fill-available;
+  height: 100%;
+}
+
+.image-with-text__media-item > * {
+  overflow: hidden;
+}
+
 @media screen and (min-width: 1024px) {
   .grid__item > .image-with-text__media {
     height: 65rem;
+  }
+
+  .image-with-text__media-item.grid__item {
+    order: 2;
   }
 }
 
