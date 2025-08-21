@@ -21,20 +21,20 @@
 
 <div class="section-{{ section.id }}-padding color-{{ section.settings.section_color_scheme }}">
   <div class="page-width">
-    <div class="grid grid--1-col grid--3-col-tablet">
+    <div class="icon-with-text grid grid--1-col grid--3-col-tablet">
       {% for block in section.blocks %}
-        <div class="grid__item flex flex-col items-center justify-center">
+        <div class="icon-with-text__item grid__item flex flex-col items-center justify-center">
           {% if block.settings.icon != blank %}
             {%- assign widths = '70, 85' -%}
             {%- capture sizes -%}
               (min-width: {{ settings.page_width }}px) 53px,
               (min-width: 750px) 44px
             {%- endcapture -%}
-            {{ block.settings.icon | image_url: width: 300 | image_tag: sizes: sizes, fetchpriority: fetch_priority, class: 'object-contain', widths: widths }}
+            {{ block.settings.icon | image_url: width: 90 | image_tag: sizes: sizes, fetchpriority: fetch_priority, class: 'object-contain', widths: widths }}
           {% endif %}
 
           {% if block.settings.heading != blank %}
-            <div>
+            <div class="icon-with-text__item--heading">
               {{ block.settings.heading }}
             </div>
           {% endif %}
