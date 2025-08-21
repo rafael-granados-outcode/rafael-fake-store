@@ -81,10 +81,49 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "dual_banner_63qLGA": {
+      "type": "dual-banner",
+      "blocks": {
+        "card_dmXEby": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_block.png",
+            "heading": "NEW ARRIVALS",
+            "text": "<p>Our latest Summer styles. Fresh. Fun. Fabulous.</p>",
+            "collections": [
+              "women",
+              "men",
+              "kids",
+              "home"
+            ]
+          }
+        },
+        "card_wHizBW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/image_block_1.png",
+            "heading": "COLLEGE BOUND",
+            "text": "<p>New places and new faces. Same great style.<br/><a href=\"/collections\" title=\"Todas las colecciones\"><strong>SHOP DORM DECOR</strong></a></p>",
+            "collections": []
+          }
+        }
+      },
+      "block_order": [
+        "card_dmXEby",
+        "card_wHizBW"
+      ],
+      "name": "Dual Banner",
+      "settings": {
+        "section_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "image_banner",
-    "image_with_text_U3jcer"
+    "image_with_text_U3jcer",
+    "dual_banner_63qLGA"
   ]
 }
