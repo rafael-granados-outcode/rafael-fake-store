@@ -59,7 +59,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   justify-content: center;
   align-items: center;
   border: 0;
-  padding: 0 3rem;
+  padding: 1rem 2.4rem;
   cursor: pointer;
   font: inherit;
   font-size: 1.5rem;
@@ -69,6 +69,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   -webkit-appearance: none;
   appearance: none;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
+  border-radius: 5px;
 }
 
 .button:disabled,
@@ -569,6 +570,10 @@ details > * {
     max-width: 60rem;
     align-self: center;
   }
+
+  .media > img {
+    object-position: center center;
+  }
 }
 
 @media screen and (max-width: 749px) {
@@ -606,7 +611,7 @@ details > * {
 
 .media > img {
   object-fit: cover;
-  object-position: center center;
+  object-position: right center;
   transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -616,7 +621,8 @@ h2.banner__heading {
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1.714px;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 750px) {
