@@ -1,0 +1,120 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div class="section-{{ section.id }}-padding color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="grid grid--1-col grid--3-col-tablet">
+      {% for block in section.blocks %}
+        <div class="grid__item flex flex-col items-center justify-center">
+          {% if block.settings.icon != blank %}
+            {%- assign widths = '70, 85' -%}
+            {%- capture sizes -%}
+              (min-width: {{ settings.page_width }}px) 53px,
+              (min-width: 750px) 44px
+            {%- endcapture -%}
+            {{ block.settings.icon | image_url: width: 300 | image_tag: sizes: sizes, fetchpriority: fetch_priority, class: 'object-contain', widths: widths }}
+          {% endif %}
+
+          {% if block.settings.heading != blank %}
+            <div>
+              {{ block.settings.heading }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Icons with text",
+    "tag": "section",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "section_color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "scheme-1"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icon",
+        "name": "Icon with text",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Icon text",
+            "default": "Heading"
+          }       
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icons with text",
+        "blocks": [
+          {
+            "type": "icon"
+          },
+          {
+            "type": "icon"
+          },
+          {
+            "type": "icon"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

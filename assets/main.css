@@ -1006,3 +1006,26 @@ h2.banner__heading {
 .dual-banner__text > p > a {
   color: #141414;
 }
+
+@media screen and (min-width: 1024px) {
+  .dual-banner__item--content.relative {
+    margin-bottom: 4rem;
+    padding: 4.6rem 8.4rem 5.1rem;
+  }
+
+  .dual-banner__item .dual-banner__heading {
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-top: 0;
+  }
+
+  .dual-banner__item .dual-banner__text {
+    font-size: 16px;    
+    line-height: 26px;
+    letter-spacing: 1px;    
+  }
+
+  .dual-banner__links {
+    font-size: 14px;
+  }
+}
