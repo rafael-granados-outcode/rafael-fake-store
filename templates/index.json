@@ -104,7 +104,7 @@
           "settings": {
             "image": "shopify://shop_images/image_block_1.png",
             "heading": "COLLEGE BOUND",
-            "text": "<p>New places and new faces. Same great style.<br/><a href=\"/collections\" title=\"Todas las colecciones\"><strong>SHOP DORM DECOR</strong></a></p>",
+            "text": "<p>New places and new faces. Same great style.</p><p><a href=\"/collections\" title=\"Todas las colecciones\"><strong>SHOP DORM DECOR</strong></a></p>",
             "collections": []
           }
         }
